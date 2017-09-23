@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.error-text {
+	font-size: 10px;
+	display: block;
+	color: rgb(208, 2, 27);
+}

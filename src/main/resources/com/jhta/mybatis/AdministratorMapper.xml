@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jhta.mybatis.AdministratorMapper">
+	<insert id="insert" parameterType="admin">
+		<selectKey resultType="int" keyProperty="mem_num" order="BEFORE">
+		select nvl(max(admin_num), 0) + 1 as maxnum
+		from administrator
+		</selectKey>
+		insert into administrator(admin_num, admin_id, admin_pwd, admin_nick, admin_pic)
+		values(#{admin_num}, #{admin_id}, #{admin_pwd}, #{admin_nick}, #{admin_nick})
+	</insert>
+	
+	<select id="selectById" parameterType="string" resultType="admin">
+		select *
+		from administrator
+		where admin_id = #{admin_id}
+	</select>
+	
+	<select id="isMember" parameterType="hashmap" resultType="admin">
+		select * 
+		from administrator 
+		where admin_id = #{id} 
+		and admin_pwd = #{pwd}
+	</select>
+</mapper>

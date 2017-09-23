@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jhta.mybatis.RewardMapper">
+	<insert id="insert" parameterType="reward">
+		<selectKey resultType="int" keyProperty="rew_num" order="BEFORE">
+			select nvl(max(rew_num), 0) + 1 as maxnum
+			  from reward
+		</selectKey>
+		insert into reward(rew_num, pro_num, rew_name, price, detail, del_flag, del_pee, limit_ea, amount, del_startdate)
+		values(#{rew_num}, #{pro_num}, #{rew_name}, #{price}, #{detail}, #{del_flag}, #{del_pee}, #{limit_ea}, #{amount}, sysdate)
+	</insert>
+	
+	<update id="update" parameterType="reward">
+		update reward
+		   set pro_num       = #{pro_num}
+             , rew_name      = #{rew_name}
+             , price         = #{price}
+             , detail        = #{detail}
+             , del_flag      = #{del_flag}
+             , del_pee       = #{del_pee}
+             , limit_ea      = #{limit_ea}
+             , amount        = #{amount}
+             , del_startdate = #{del_startdate}
+         where rew_num       = #{rew_num}
+	</update>
+	
+	<delete id="delete" parameterType="reward">
+		delete
+		  from reward
+		 where rew_num = #{rew_num}
+	</delete>
+	
+	<select id="select" parameterType="int" resultType="reward">
+		select rew_num
+		     , pro_num
+		     , rew_name
+		     , price
+		     , detail
+		     , del_flag
+		     , del_pee
+		     , limit_ea
+		     , amount
+		     , del_startdate
+		  from reward
+		 where rew_num = #{rew_num}
+	</select>
+	
+	<select id="list" parameterType="hashmap" resultType="reward">
+		select *
+		  from (select aa.*
+		             , rownum rnum
+		          from (select rew_num
+		                     , pro_num
+		                     , rew_name
+		                     , price
+		                     , detail
+		                     , del_flag
+		                     , del_pee
+		                     , limit_ea
+		                     , amount
+		                     , del_startdate
+		                  from reward
+		                 <where>
+			                <if test="rew_name != null">
+				                or rew_name like '%' || #{keyword} || '%'
+			                </if>
+		                 </where>
+		                 order by rew_num desc
+		               ) aa
+		       )
+		<![CDATA[where rnum >= #{startRow} and rnum <= #{endRow}]]>
+	</select>
+	
+	<!-- 전체 글의 갯수 구하기 -->
+	<select id="count" resultType="int">
+		select nvl(count(rew_num), 0) cnt
+		  from reward
+		 <where>
+		   <if test="rew_name != null">
+		     or rew_name like '%' || #{keyword} || '%'
+		   </if>
+		 </where>
+	</select>
+
+	<!-- 이전글 -->
+	<select id="prev" parameterType="int" resultType="reward">
+		select *
+		  from (select rew_num
+                     , pro_num
+                     , rew_name
+                     , price
+                     , detail
+                     , del_flag
+                     , del_pee
+                     , limit_ea
+                     , amount
+                     , del_startdate
+                  from reward
+		         <![CDATA[where rew_num < #{rew_num} order by rew_num desc]]>
+		       )
+		 where rownum = 1
+	</select>
+
+	<!-- 다음글 -->
+	<select id="next" parameterType="int" resultType="reward">
+		select *
+		  from (select rew_num
+                     , pro_num
+                     , rew_name
+                     , price
+                     , detail
+                     , del_flag
+                     , del_pee
+                     , limit_ea
+                     , amount
+                     , del_startdate
+                  from reward
+			     <![CDATA[where rew_num > #{rew_num} order by rew_num asc]]>
+		       )
+		 where rownum = 1
+	</select>
+</mapper>

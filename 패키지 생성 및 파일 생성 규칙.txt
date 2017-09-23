@@ -1,0 +1,27 @@
+패키지 규칙 정의
+
+src/main/java/
+
+com.jhta.app.controller
+
+com.jhta.app.dao
+
+com.jhta.app.service
+
+com.jhta.app.vo
+
+==================================================
+
+src/main/resources/
+
+com.jhta.mybatis - mybatis-config.xml
+  <typeAliases>
+  </typeAliases>
+
+  <mappers>
+  </mappers>
+
+src/main/webapp/WEB-INF/tiles-def.xml
+→ JSP파일 1개당 <definition> 1개
+
+위에서 부터 패키지 길이 3개 짜리 → 패키지 길이 2개 짜리

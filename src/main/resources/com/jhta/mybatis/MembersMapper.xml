@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jhta.mybatis.MembersMapper">
+	<insert id="insert" parameterType="members">
+		<selectKey resultType="int" keyProperty="mem_num" order="BEFORE">
+			select nvl(max(mem_num), 0) + 1 as maxnum
+			  from members
+		</selectKey>
+		insert into members(mem_num, id, nickname, pwd, jumin)
+		values(#{mem_num}, #{id}, #{nickname}, #{pwd}, #{jumin})
+	</insert>
+	
+	<update id="update" parameterType="members">
+		update members
+		   set id       = #{id}
+		     , nickname = #{nickname}
+		     , pwd      = #{pwd}
+		     , jumin    = #{jumin}
+		 where mem_num  = #{mem_num}
+	</update>
+	
+	<!-- 기본 정보 설정 -->
+	<update id="updateBasicInfo" parameterType="members">
+		update members
+		   set id       = #{id}
+		     , nickname = #{nickname}
+		 where mem_num  = #{mem_num}
+	</update>
+	
+	<delete id="delete" parameterType="members">
+		delete
+		  from members
+		 where id  = #{id}
+		   and pwd = #{pwd}
+	</delete>
+	
+	<select id="select" parameterType="int" resultType="members">
+		select mem_num
+		     , id
+		     , nickname
+		     , pwd
+		     , substr(jumin, 0, 6) || '-' || substr(jumin, 7, 1) || translate(substr(jumin, 8, 6), '1234567890', '**********') as jumin
+		  from members
+  		 where mem_num = #{mem_num}
+	</select>
+	
+	<select id="selectById" parameterType="string" resultType="members">
+		select mem_num
+		     , id
+		     , nickname
+		     , pwd
+		     , substr(jumin, 0, 6) || '-' || substr(jumin, 7, 1) || translate(substr(jumin, 8, 6), '1234567890', '**********') as jumin
+		  from members
+		 where id = #{id}
+	</select>
+	
+	<select id="isMember" parameterType="hashmap" resultType="members">
+		select mem_num
+		     , id
+		     , nickname
+		     , pwd
+		     , substr(jumin, 0, 6) || '-' || substr(jumin, 7, 1) || translate(substr(jumin, 8, 6), '1234567890', '**********') as jumin
+		  from members
+		 where id  = #{id}
+		   and pwd = #{pwd}
+	</select>
+	
+	<select id="list" parameterType="hashmap" resultType="members">
+		select *
+		  from (select aa.*
+		             , rownum rnum
+		          from (select mem_num
+						     , id
+						     , nickname
+						     , pwd
+						     , substr(jumin, 0, 6) || '-' || substr(jumin, 7, 1) || translate(substr(jumin, 8, 6), '1234567890', '**********') as jumin
+						  from members
+		                 <where>
+			                <if test="id != null">
+				                id like '%' || #{keyword} || '%'
+			                </if>
+			                <if test="nickname != null">
+				                or nickname like '%' || #{keyword} || '%'
+			                </if>
+		                 </where>
+		                 order by mem_num desc
+		               ) aa
+		       )
+		<![CDATA[where rnum >= #{startRow} and rnum <= #{endRow}]]>
+	</select>
+
+	<!-- 전체 글의 갯수 구하기 -->
+	<select id="count" resultType="int">
+		select nvl(count(mem_num), 0) cnt
+		  from members
+		  <where>
+            <if test="id != null">
+              id like '%' || #{keyword} || '%'
+            </if>
+            <if test="nickname != null">
+              or nickname like '%' || #{keyword} || '%'
+            </if>
+          </where>
+	</select>
+
+	<!-- 이전글 -->
+	<select id="prev" parameterType="int" resultType="members">
+		select *
+		  from (select mem_num
+				     , id
+				     , nickname
+				     , pwd
+				     , substr(jumin, 0, 6) || '-' || substr(jumin, 7, 1) || translate(substr(jumin, 8, 6), '1234567890', '**********') as jumin
+				  from members
+		         <![CDATA[where mem_num < #{mem_num} order by mem_num desc]]>
+		       )
+		 where rownum = 1
+	</select>
+
+	<!-- 다음글 -->
+	<select id="next" parameterType="int" resultType="members">
+		select *
+		  from (select mem_num
+				     , id
+				     , nickname
+				     , pwd
+				     , substr(jumin, 0, 6) || '-' || substr(jumin, 7, 1) || translate(substr(jumin, 8, 6), '1234567890', '**********') as jumin
+				  from members
+			     <![CDATA[where mem_num > #{mem_num} order by mem_num asc]]>
+		       )
+		 where rownum = 1
+	</select>
+</mapper>

@@ -1,0 +1,119 @@
+@charset "UTF-8";
+*{margin:0px;padding:0px;}
+
+#newContainer div{
+	margin-bottom:30px;
+	
+}
+#newContainer h2{
+	color:#FFFFFF;
+	font-size:40px;
+	font-weight:bold;
+}
+
+#newContainer h3{
+	color:#54B2A9;
+	font-size:40px;
+	margin:30px;
+}
+
+#newContainer li{
+	list-style:none;
+}
+
+#newContainer a:hover {
+	text-decoration:none;
+}
+
+#newContainer p{
+	margin:20px;
+	font-size:16px;
+}
+
+.btn-pd-mint{
+	font-weight:bold;
+	font-family:고딕체;
+	line-height:12px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:16px;
+	color:#ffffff;
+	width:170px;
+	padding:12px;
+	background-color:#54B2A9;
+	border-width:0px;
+}
+
+.btn-pdline-mint{
+	font-weight:bold;
+	font-family:고딕체;
+	line-height:12px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:16px;
+	color:#54B2A9;
+	width:170px;
+	padding:12px;
+	border:solid 1px #54B2A9;
+	background-color:transparent;
+}
+
+.btn-pd-mint:hover {
+	background-color:#68d0c6;
+	color:#ffffff;
+}
+
+.btn-pdline-mint:hover {
+	border:solid 1px #2BA5BA;
+	color:#2BA5BA;
+}
+
+.make-project-guide-section2 .inner-wrap{
+	background-color:#F0F0F0;
+}
+.make-project-guide-section4 .inner-wrap{
+	background-color:#F0F0F0;
+}
+
+.invest div{
+	color:#FFFFFF;
+	margin:30px;
+}
+
+.reward div{
+	color:#FFFFFF;
+	margin:30px;
+}
+
+#makeProject{
+	text-align:center;
+}
+
+div.make-project-category{
+	display:inline-block;
+	width:100%;
+}
+
+li.invest{
+	padding-top:30px;
+	text-align:center;
+	float:left;
+	width:50%;
+	height:600px;
+	background-image:url('../images/investment.jpg');
+	background-size:cover;
+	
+}
+	
+li.reward{
+	padding-top:30px;
+	text-align:center;
+	float:right;
+	width:50%;
+	height:600px;
+	background-image:url('../images/reward.jpg');
+	background-size:cover;
+	
+}

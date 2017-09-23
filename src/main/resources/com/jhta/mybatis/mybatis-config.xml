@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- alias -->
+	<typeAliases>
+		<typeAlias type="com.jhta.app.vo.MembersVo" alias="members" />
+		<typeAlias type="com.jhta.app.vo.AdministratorVo" alias="admin" />
+		<typeAlias type="com.jhta.app.vo.RewardVo" alias="reward" />
+		<typeAlias type="com.jhta.app.vo.ProjectVo" alias="project" />
+		<typeAlias type="com.jhta.app.vo.InterestcategoryVo" alias="interestcategory" />
+		<typeAlias type="com.jhta.app.vo.ProCategoryVo" alias="proCategory" />
+	</typeAliases>
+	<mappers>
+		<!-- 수행할 SQL구문을 갖고 있는 SQL Mapper파일을 포함한다. 여러파일을 포함할 수 있다. -->
+		<mapper resource="com/jhta/mybatis/MembersMapper.xml" />
+		<mapper resource="com/jhta/mybatis/AdministratorMapper.xml" />
+		<mapper resource="com/jhta/mybatis/RewardMapper.xml" />
+		<mapper resource="com/jhta/mybatis/ProjectMapper.xml" />
+	</mappers>
+</configuration>

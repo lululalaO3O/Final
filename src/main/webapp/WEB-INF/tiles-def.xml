@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions 
+	PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<!--
+		1. https://tiles.apache.org/
+		2. Tiles 2.2 Documentation
+		3. Reference
+		4. DTD Doc
+		5. XML파일 생성 후 내용 붙여넣기
+		  - 내용 : <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	-->
+	<definition name="." template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/index.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".main" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/main.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.insert" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/join.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.insertOk" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/joinOk.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.delete" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/delete.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.deleteOk" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/deleteOk.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.select" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/select.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.list" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/list.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.login" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/login.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<!-- ////////////////////////////////////////////////////////////////////////// -->
+	
+	<definition name=".members.updateuserinfo" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/updateuserinfo.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.updatebasicinfo" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/updatebasicinfo.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".reward.insert" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/reward/insert.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".reward.insertOk" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/reward/insertOk.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".members.updatepwd" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/members/updatepwd.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<!-- ////////////////////////////////////////////////////////////////////////// -->
+	
+	<definition name=".reward.list" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/reward/list.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<!-- ////////////////////////////////////////////////////////////////////////// -->
+		
+	<definition name=".admin.login" template="/WEB-INF/views/admins/layout/layout.jsp">
+		<put-attribute name="a_header" value="/WEB-INF/views/admins/layout/header.jsp" />
+		<put-attribute name="a_content" value="/WEB-INF/views/admins/login.jsp" />
+		<put-attribute name="a_footer" value="/WEB-INF/views/admins/layout/footer.jsp" />
+	</definition>
+	
+	<definition name=".admin.main" template="/WEB-INF/views/admins/layout/layout.jsp">
+		<put-attribute name="a_header" value="/WEB-INF/views/admins/layout/header.jsp" />
+		<put-attribute name="a_content" value="/WEB-INF/views/admins/main.jsp" />
+		<put-attribute name="a_footer" value="/WEB-INF/views/admins/layout/footer.jsp" />
+	</definition>
+	
+	<definition name=".project.insert" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/project/insert.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<!-- /////////////////////////////////  투자 페이지  ///////////////////////////// -->
+	<definition name=".investment.application_main" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/investment/application_main.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	
+	<definition name=".investment.investment_guide" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/investment/investment_guide.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+	<!--
+		※ .*.*.*보다 .*.*가 먼저오면 안된다.
+	-->
+	<!--
+		.member.login.loginForm
+		.member.login.mypage
+	-->
+	<definition name=".*.*.*" extends=".main">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+	</definition>
+	
+	<!--
+		뷰이름이 .member.cart 라면
+		{1}위치에 member
+		{2}위치에 cart가 설정되어서 보여질 뷰페이지는
+		/WEB-INF/views/member/cart.jsp 가 됨
+	-->
+	<definition name=".*.*" extends=".main">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+#back {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;
+    z-index: 999;
+    visibility: hidden;
+	}
+	
+#layer_fixed {
+	height: 100%;
+	width: 300px;
+	color: #555;
+	z-index: 999;
+	font-size: 12px;
+	position: fixed;
+	z-index: 999;
+	top: 0px;
+	right: 0px;
+	-webkit-box-shadow: 0 1px 2px 0 #777;
+	box-shadow: 0 1px 2px 0 #777;
+	background-color: white;
+	text-align: center;
+}
+
+#winghead {
+	width: 300px;
+	height: 150px;
+	background-color: #44484b;
+}
+/* //////////////////// */
+#winghead #profile dl{
+	width:100%;
+	padding-top: 32px;
+	padding-left: 20px;
+}
+
+#winghead #profile dl:after{
+	content:"";
+	clear:both;
+	display:block;
+}
+
+#winghead #profile dt{
+	float:left;
+	width:80px;
+	height:80px;
+	margin-right:12px;
+}
+
+#winghead #profile dt img{
+	width: 80px;
+	height: 80px;
+	border-radius: 40px;
+}
+
+#winghead #profile dd{
+	float:left;
+	margin-top: 11px;
+}
+
+#winghead #profile .nickname{
+	font-size:20px;
+	font-weight:500;
+	line-height:23px;
+	color:#fff;
+	overflow:hidden;
+	white-space:nowrap;
+	text-align: left;
+	font-weight: bold;
+}
+
+#winghead #profile .username{
+	font-size:15px;
+	font-weight:400;
+	line-height:18px;
+	color:#babdc0;
+	overflow:hidden;
+	white-space:nowrap;
+	text-align: left;
+}
+
+#wingcontent {
+	display: block;
+    height: 48px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 48px;
+    text-align: left;
+}
+#wingcontent ul {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding: 0px;
+}
+
+#wingcontent ul li {
+	list-style: none;
+	padding-left: 20px;
+	padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#wingcontent ul li:hover {
+	list-style: none;
+	padding-left: 20px;
+	background-color: #EAEAEA;
+}
+
+#wingcontent ul li a {
+	text-decoration: none;
+    color: #44484b;
+}

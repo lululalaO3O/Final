@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jhta.mybatis.ProjectMapper">
+	<insert id="insert" parameterType="project">
+		insert into project values(
+			(select nvl(max(pro_num),0)+1 from project)
+			,#{pro_cat_num}
+			,#{mem_num}
+			,#{title}
+			,#{tag}
+			,#{goal}
+			,#{wrapimg}
+			,sysdate
+			,sysdate
+			,#{deadline}
+			,#{adult}
+			,#{confirm}
+			,#{pro_status}
+			,#{pro_type}
+			)
+	</insert>
+	<select id="interestSelect" resultType="interestcategory">
+		select * from interestcategory
+	</select>
+	<select id="proCategorySelect" resultType="proCategory">
+		select * from pro_category
+	</select>
+</mapper>
